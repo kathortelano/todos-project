@@ -1,77 +1,39 @@
-import Head from 'next/head'
-import styles from '../styles/homepage.module.css'
+import Layout from '../components/Layout'
 import { connectToDatabase } from '../util/mongodb'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+
+import { data } from '../data/dummy'
 
 export default function Home({ isConnected }) {
+  const router = useRouter();
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a className={styles.linkTag} href="https://nextjs.org">Next.js with MongoDB!</a>
-        </h1>
-
-        {isConnected ? (
-          <h2 className={styles.subtitle}>You are connected to MongoDB</h2>
-        ) : (
-          <h2 className={styles.subtitle}>
-            You are NOT connected to MongoDB. Check the <code className={styles.code}>README.md</code>{' '}
-            for instructions.
-          </h2>
-        )}
-
-        <p className={styles.description}>
-          Get started by editing <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a className={`${styles.linkTag} ${styles.card}`} href="https://nextjs.org/docs" >
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a className={`${styles.linkTag} ${styles.card}`} href="https://nextjs.org/learn" >
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={`${styles.linkTag} ${styles.card}`}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={`${styles.linkTag} ${styles.card}`}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          className={styles.linkTag}
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-     
+    <Layout page='Find a todo'>
+    <div>
+      <p>Cant find anything todo?</p>
+      <button onClick={() => router.push('/create')}>Create</button>
     </div>
+
+    <ul>
+    {data.map((item ,i)=> {
+       return <li key={i}>
+       <Link href={`/todo`} as={`/todo?id=${item.id}`}>
+       <a>
+       <div>{item.title}</div>
+          <div>{item.tasks.length} tasks</div>
+          {item.tags.map((tag,i) => {
+            return <span key={i}>#{tag}</span>
+          })}
+       </a>
+          
+        </Link>
+       </li>
+       
+      })}
+    </ul>
+      
+    </Layout>
   )
 }
 

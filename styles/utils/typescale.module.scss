@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+// Roboto
+$Roboto: "Roboto" sans-serif;
+$Rh1: 28px;
+$Rh2: 25px;
+$Rh3:22px;
+$Rh4: 20px;
+$Rh5: 18px;
+$Rp:16px;
+$Rhelpers:14px;
+$Rsmall:12px;
+//Poppins
+$Poppins: "Poppins" sans-serif;
+$Ph1:39.81px;
+$Ph2:33.18px;
+$Ph3: 27.65px;
+$Ph4: 23.04px;
+$Ph5: 19.20px;
+$Pp: 16px;
+$Phelper: 13.33px;
+$Psmall: 11.11px;
+//letter horizontal spacing
+$letterSpacing: 10%;
+$paragraphSpacing: 22;
+.Title {
+    font-family: $Poppins;
+    font-size: $Ph1;
+    font-weight: 900;
+    letter-spacing: $letterSpacing;
+}
+
+.textbody {
+    font-family: $Roboto;
+    font-size: $Rp;
+    letter-spacing: $letterSpacing;
+    line-height: $paragraphSpacing;
+}

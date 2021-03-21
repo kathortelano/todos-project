@@ -1,11 +1,10 @@
 import Layout from '../components/Layout'
-import { connectToDatabase } from '../util/mongodb'
+import { RiHeart3Fill, RiShareForwardLine } from 'react-icons/ri'
+import { getAllTodos } from '../data/QueryController'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-import { data } from '../data/dummy'
-
-export default function Home({ isConnected }) {
+export default function Home({ data }) {
   const router = useRouter();
 
   return (
@@ -16,18 +15,23 @@ export default function Home({ isConnected }) {
     </div>
 
     <ul>
-    {data.map((item ,i)=> {
-       return <li key={i}>
-       <Link href={`/todo`} as={`/todo?id=${item.id}`}>
+    {data.map((item)=> {
+       return <li key={item._id}>
+       <Link href={`/${item._id}`} >
        <a>
        <div>{item.title}</div>
+       </a>
+        </Link>
           <div>{item.tasks.length} tasks</div>
           {item.tags.map((tag,i) => {
             return <span key={i}>#{tag}</span>
           })}
-       </a>
+          <div>
+           <span><RiHeart3Fill/> {item.likes}</span> 
+           <span><RiShareForwardLine/> {item.shares}</span>
+          </div>
           
-        </Link>
+       
        </li>
        
       })}
@@ -38,11 +42,10 @@ export default function Home({ isConnected }) {
 }
 
 export async function getServerSideProps(context) {
-  const { client } = await connectToDatabase()
-
-  const isConnected = await client.isConnected()
+  
+  const data = await getAllTodos();
 
   return {
-    props: { isConnected },
+    props: { data: JSON.parse(data) },
   }
 }

@@ -9,7 +9,7 @@ export default function Layout({page, children}) {
     return <div className={styles.container}>
     <Head>
         <title>{page}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/todo.svg" />
       </Head>
         <Title>{page}</Title>
         <main className={styles.content}>

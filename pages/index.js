@@ -1,5 +1,5 @@
 import Layout from '../components/Layout'
-import { RiHeart3Fill, RiShareForwardLine } from 'react-icons/ri'
+import { RiHeart3Fill, RiShareForwardLine, RiUserLine } from 'react-icons/ri'
 import { getAllTodos } from '../data/QueryController'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -29,6 +29,7 @@ export default function Home({ data }) {
           <div>
            <span><RiHeart3Fill/> {item.likes}</span> 
            <span><RiShareForwardLine/> {item.shares}</span>
+           <span><RiUserLine/> {item.used}</span> 
           </div>
           
        

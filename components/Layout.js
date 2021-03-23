@@ -4,7 +4,6 @@ import Head from 'next/head'
 import Nav from './Nav'
 import {RiSunLine, RiMoonLine} from 'react-icons/ri'
 import { useGlobalStore } from '../util/StoreAPI'
-import { useState} from 'react'
 
 import styles from './styles/Layout.module.scss';
 

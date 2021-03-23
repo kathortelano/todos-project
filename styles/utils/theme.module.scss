@@ -1,0 +1,28 @@
+@import './colours.module.scss';
+//dark theme
+$dark-background: $darkBackground;
+$dark-logo-color: $secondary1k;
+$dark-logo-hover: $gray800;
+$dark-title-color: $secondary500;
+$dark-todo-title: $gray2-200;
+$dark-todo-hover: $secondary700;
+$dark-tag-hover: $gray800;
+$dark-tag-text: $gray2-100;
+$dark-icon-color: $gray2-800;
+$dark-icon-hover: $secondary900;
+$dark-itemBackground-hover: $gray2-800;
+$dark-caption: $secondary900;
+$dark-boxShadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+//light theme
+$light-background: #FFF;
+$light-logo-color: $secondary1k;
+$light-logo-hover: $secondary200;
+$light-title-color: $primaryText;
+$light-todo-title: $primaryText;
+$light-tag-hover: $secondary200;
+$light-tag-text: $secondaryText;
+$light-icon-color: $gray500;
+$light-icon-hover: $gray700;
+$light-itemBackground-hover: $secondary200;
+$light-caption: $gray2-200;
+$light-boxShadow: 0px 2px 4px rgba(0, 0, 0, 0.25);

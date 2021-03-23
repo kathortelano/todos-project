@@ -5,10 +5,13 @@
     align-items: center;
 }
 
+.container.dark {
+    background-color: $dark-background;
+}
+
 .footer {
     padding: 10px;
     padding-bottom: 20px;
-    background-color: #FFF;
     text-align: center;
     width: 100%;
     .copyright {

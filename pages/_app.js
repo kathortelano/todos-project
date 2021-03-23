@@ -1,8 +1,12 @@
 import '../styles/global.scss'
+import { StateProvider } from '../util/Store'
 
 function MyApp({ Component, pageProps }) {
   return (
-      <Component {...pageProps} />
+    <StateProvider>
+       <Component {...pageProps} />
+    </StateProvider>
+     
   )
 }
 

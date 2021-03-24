@@ -1,0 +1,55 @@
+@import '../../styles/utils/utils.module.scss';
+.container {
+    font-family: $Roboto;
+    font-size: $Rp;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.primary {
+    background-color: $primary500;
+    color: $gray050;
+    border: hidden;
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+    &:hover {
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+        transform: translateY(-2px);
+    }
+    &:focus {
+        outline: none;
+        box-shadow: 0px 0px 0px 4px$primary100;
+        transform: translateY(-2px);
+    }
+    &:active {
+        background-color: $primary700;
+        border: none;
+        transform: translateY(0px);
+    }
+    &:disabled {
+        background-color: $primaryDisabled;
+        cursor: not-allowed;
+        transform: none;
+        &:hover {
+            box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
+        }
+    }
+}
+
+.primary.dark {
+    box-shadow: $dark-boxShadow;
+    &:hover {
+        box-shadow: 0px 6px 10px rgba(24, 26, 37, 0.5);
+    }
+    &:focus {
+        outline: none;
+        box-shadow: 0px 0px 0px 4px rgb(247 192 196 / 50%);
+        transform: translateY(-2px);
+    }
+}

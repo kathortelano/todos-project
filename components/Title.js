@@ -1,11 +1,26 @@
 import styles from './styles/Title.module.scss'
 import Link from 'next/link'
+import { useGlobalStore } from '../util/StoreAPI'
 
-export default function Title({children})  {
-   return <div className={styles.title}>
-            <h1 className={styles.link}>
-                <Link href='/'><a>Todo:</a></Link>
-            </h1>
-            <h1 className={styles.titleText}>{children}</h1>
+
+
+export  function Display({children})  {
+   return <div className={styles.container}>
+            <Logo href='/'/>
+            <Title>{children}</Title>
         </div>
+}
+
+export function Logo({ href}) {
+    const { dark } = useGlobalStore();
+    const DARK = dark ? styles.dark : ''
+    return <div className={`${styles.logo} ${DARK}`}>
+            <Link href={href}><a>Todo:</a></Link>
+        </div>
+}
+
+export function Title({children}) {
+    const { dark } = useGlobalStore();
+    const DARK = dark ? styles.dark : ''
+    return <div className={`${styles.title} ${DARK}`}>{children}</div>
 }
